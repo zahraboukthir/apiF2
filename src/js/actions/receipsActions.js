@@ -13,7 +13,7 @@ export const getallreceips = (serchedvalue) => async (dispatch) => {
   });
   try {
     const res = await axios.get(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=${serchedvalue.trim()}&app_id=01903511&app_key=%20586dab1ccb1f25cc9e26ddc82ac993d5`
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${serchedvalue.trim()}&app_id=${process.env.REACT_APP_app_id}&app_key=${process.env.REACT_APP_app_key}`
     );
     dispatch({
       type: GETALLRECEIPSSUCCESS,
@@ -33,7 +33,7 @@ export const getonereceipe = (id) => async (dispatch) => {
   });
   try {
     const res = await axios.get(
-      `https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=01903511&app_key=%20586dab1ccb1f25cc9e26ddc82ac993d5
+      `https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=${process.env.REACT_APP_app_id}&app_key=${process.env.REACT_APP_app_key}
         `
     );
     dispatch({
